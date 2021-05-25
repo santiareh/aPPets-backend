@@ -5,12 +5,16 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
 
-@Document("Todo")
-public class TaskModel {
+@Document("Pets")
+public class PetModel {
     @Id
     public String id;
 
-    private String title;
+    private String name;
+
+    private String race;
+
+    private String type;
 
     private String content;
 
@@ -18,15 +22,17 @@ public class TaskModel {
 
     private Date timestamp = new Date();
 
-    public TaskModel(String title, String content, String userID) {
-        this.title = title;
+    public PetModel(String name, String race, String type, String content, String userID) {
+        this.name = name;
+        this.race = race;
+        this.type = type;
         this.content = content;
         this.userID = userID;
     }
-    public TaskModel(String userID) {
+    public PetModel(String userID) {
         this.userID = userID;
     }
-    public TaskModel() {
+    public PetModel() {
     }
 
     public String getId() {
@@ -41,8 +47,12 @@ public class TaskModel {
         return timestamp;
     }
 
-    public String getTitle() {
-        return title;
+    public String getRace() {return race; }
+
+    public String getType() {return type; }
+
+    public String getName() {
+        return name;
     }
     public String getUserID() {
         return userID;
